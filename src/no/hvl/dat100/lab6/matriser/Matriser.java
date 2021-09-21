@@ -5,46 +5,97 @@ public class Matriser {
 	// a)
 	public static void skrivUt(int[][] matrise) {
 		
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
+		for(int[] i : matrise)
+		{
+			for(int j : i)
+			{
+				System.out.print((char)j + ' ');
+			}
+			System.out.print('\n');
+		}
 	}
 
 	// b)
-	public static String tilStreng(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
+	public static String tilStreng(int[][] matrise) { 
 		
+		String ret = "";
+		for(int[] i : matrise)
+		{
+			for(int j : i)
+			{
+				ret += j;
+				ret += ' ';
+			}
+			ret += '\n';
+		}
+		return ret;
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
 		
-		// TODO
-		throw new UnsupportedOperationException("skaler ikke implementert");
-	
+		int[][] ret  = new int[matrise.length][];
+		
+		for(int i = 0; i < matrise.length ; i++)
+		{
+			ret[i] = new int[matrise[i].length];
+			for(int j = 0; j < matrise[i].length ; j++)
+			{
+				ret[i][j] = matrise[i][j] * tall;
+			}
+			
+		}
+		return ret;
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("erLik ikke implementert");
+		for(int i = 0; i < a.length; i++)
+		{
+			for(int k = 0; k < a[i].length; k++)
+			{
+				if(a[i][k] != b[i][k])
+					return false;
+			}
+		}
+		return true;
 	}
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
 
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
-	
+		int[][] ret  = new int[matrise.length][];
+		for(int i = 0; i < matrise.length ; i++)
+			ret[i] = new int[matrise[i].length];
+		
+		for(int i = 0; i < matrise.length ; i++)
+		{
+			for(int j = 0; j < matrise[i].length ; j++)
+			{
+				ret[j][i] = matrise[i][j];
+			}
+			
+		}
+		return ret;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
-	
+		int[][] ret  = new int[a.length][];
+		
+		for(int i = 0; i < a.length ; i++)
+			ret[i] = new int[a[i].length];
+		
+		for(int i = 0; i < ret.length ; i++)
+		{
+			for(int j = 0; j < ret[i].length ; j++)
+			{
+				for(int k = 0; k < ret[i].length ; k++)
+					ret[i][j] += a[i][k] * b[k][j];
+			}
+		}
+		return ret;
 	}
 }
